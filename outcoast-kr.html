@@ -962,6 +962,35 @@
       .ebook-stack { width: 220px; height: 300px; }
       .ebook-card { width: 155px; height: 218px; }
       .ec-hero { font-size: 3.6rem; }
+      .lang-toggle { margin-right: 6px; }
+    }
+
+    /* --- LANGUAGE TOGGLE --- */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      padding: 5px 13px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      font-family: inherit;
+      transition: all 0.18s;
+    }
+    .lang-toggle button.active {
+      background: var(--teal);
+      color: #fff;
+      border-radius: 20px;
     }
   </style>
 </head>
@@ -972,13 +1001,17 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo"><img src="BI/bi_black.png" alt="Outcoast."></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#revenue">Revenue</a></li>
-        <li><a href="#for-you">Who it's for</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#apply" class="nav-cta">Apply — 5 spots</a></li>
+        <li><a href="#how-it-works" data-i18n="nav_how">How it works</a></li>
+        <li><a href="#team" data-i18n="nav_team">Team</a></li>
+        <li><a href="#revenue" data-i18n="nav_rev">Revenue</a></li>
+        <li><a href="#for-you" data-i18n="nav_for">Who it's for</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        <li><a href="#apply" class="nav-cta" data-i18n="nav_apply">Apply — 5 spots</a></li>
       </ul>
+      <div class="lang-toggle" id="langToggle">
+        <button onclick="setLang('ko')" id="btn-ko">KR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
       <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
     </div>
   </nav>
@@ -990,26 +1023,26 @@
 
         <div class="scarcity-badge">
           <span class="scarcity-dot"></span>
-          5 creator spots — applications open
+          <span data-i18n="hero_badge">5 creator spots — applications open</span>
         </div>
 
-        <h1>Your followers want to learn Korean.<br><em>We build the ebook — under your name.</em></h1>
+        <h1 data-i18n-html="hero_h1">Your followers want to learn Korean.<br><em>We build the ebook — under your name.</em></h1>
 
-        <p class="subtitle">We ghostwrite a Korean learning ebook in your voice, design it, handle payments and distribution — and write your Instagram promotion captions. You approve it. You share it. You earn 50%.</p>
+        <p class="subtitle" data-i18n="hero_sub">We ghostwrite a Korean learning ebook in your voice, design it, handle payments and distribution — and write your Instagram promotion captions. You approve it. You share it. You earn 50%.</p>
 
         <div class="cred-inline">
           <div class="cred-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <p>Built by a team with <strong>3 years of ebook sales experience</strong> — $100K–$150K in annual revenue managed end to end</p>
+          <p data-i18n-html="hero_cred">Built by a team with <strong>3 years of ebook sales experience</strong> — $100K–$150K in annual revenue managed end to end</p>
         </div>
 
         <div class="hero-cta-row">
           <a href="#apply" class="btn btn-primary">
-            Apply for a creator spot
+            <span data-i18n="hero_cta1">Apply for a creator spot</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#how-it-works" class="btn btn-ghost">See how it works ↓</a>
+          <a href="#how-it-works" class="btn btn-ghost" data-i18n="hero_cta2">See how it works ↓</a>
         </div>
 
       </div>
@@ -1053,70 +1086,46 @@
     </div>
   </section>
 
-  <!-- CREDIBILITY STRIP -->
-  <div class="cred-strip">
-    <div class="container">
-      <div class="cred-strip-text">
-        <h3>The model already works. We're applying it to your audience.</h3>
-        <p>Our co-founder spent 3 years running his own ebook business end to end — writing, design, distribution, payment processing, customer support, and monthly promotion. <strong>$100K–$150K in personal annual ebook revenue.</strong> Outcoast is that same system, built for Korean creators with global audiences.</p>
-      </div>
-      <div class="cred-stats">
-        <div class="cred-stat">
-          <div class="cs-number">3yr</div>
-          <div class="cs-label">co-founder's personal ebook business track record</div>
-        </div>
-        <div class="cred-stat">
-          <div class="cs-number">$125K</div>
-          <div class="cs-label">co-founder's average annual ebook revenue — the model we're scaling</div>
-        </div>
-        <div class="cred-stat">
-          <div class="cs-number">$19</div>
-          <div class="cs-label">proven price point for digital language products</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- PROCESS -->
   <section id="how-it-works">
     <div class="container">
-      <p class="section-label">How it works</p>
-      <h2 class="section-title">You bring the audience.<br>We build <span class="accent">everything else.</span></h2>
-      <p class="section-subtitle">One 30-minute call. A finished, sellable ebook in 3–5 days. We handle the rest permanently.</p>
+      <p class="section-label" data-i18n="process_label">How it works</p>
+      <h2 class="section-title" data-i18n-html="process_h2">You bring the audience.<br>We build <span class="accent">everything else.</span></h2>
+      <p class="section-subtitle" data-i18n="process_sub">One 30-minute call. A finished, sellable ebook in 3–5 days. We handle the rest permanently.</p>
 
       <div class="process-grid">
 
         <!-- Creator column -->
         <div class="process-col yours">
-          <div class="process-col-label">Your side — 4 steps, done once</div>
-          <h3>30 minutes of your time.<br>Then just share the link.</h3>
+          <div class="process-col-label" data-i18n="process_yours_label">Your side — 4 steps, done once</div>
+          <h3 data-i18n-html="process_yours_h3">30 minutes of your time.<br>Then just share the link.</h3>
           <div class="process-steps">
             <div class="process-step">
               <div class="step-num">1</div>
               <div class="step-text">
-                <strong>30-min cultural brief call</strong>
-                <span>We capture your real Korean expressions, your personality, how you explain things to followers. This is where the ebook gets your voice.</span>
+                <strong data-i18n="cs1_title">30-min cultural brief call</strong>
+                <span data-i18n="cs1_desc">We capture your real Korean expressions, your personality, how you explain things to followers. This is where the ebook gets your voice.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">2</div>
               <div class="step-text">
-                <strong>Review the content draft</strong>
-                <span>If it doesn't sound like you, we rewrite it. No extra cost. No argument. You approve when it's right.</span>
+                <strong data-i18n="cs2_title">Review the content draft</strong>
+                <span data-i18n="cs2_desc">If it doesn't sound like you, we rewrite it. No extra cost. No argument. You approve when it's right.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">3</div>
               <div class="step-text">
-                <strong>Sign off on the final ebook</strong>
-                <span>Check the design, cover, and layout. You get final say before anything goes live.</span>
+                <strong data-i18n="cs3_title">Sign off on the final ebook</strong>
+                <span data-i18n="cs3_desc">Check the design, cover, and layout. You get final say before anything goes live.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">4</div>
               <div class="step-text">
-                <strong>Post the link — we write the caption</strong>
-                <span>We draft your first Instagram story promotion. Copy, paste, post. That's it.</span>
+                <strong data-i18n="cs4_title">Post the link — we write the caption</strong>
+                <span data-i18n="cs4_desc">We draft your first Instagram story promotion. Copy, paste, post. That's it.</span>
               </div>
             </div>
           </div>
@@ -1124,55 +1133,55 @@
 
         <!-- Outcoast column -->
         <div class="process-col ours">
-          <div class="process-col-label">Our side — everything, permanently</div>
-          <h3>Research, write, design, sell,<br>support, and report.</h3>
+          <div class="process-col-label" data-i18n="process_ours_label">Our side — everything, permanently</div>
+          <h3 data-i18n-html="process_ours_h3">Research, write, design, sell,<br>support, and report.</h3>
           <div class="process-steps">
             <div class="process-step">
               <div class="step-num">1</div>
               <div class="step-text">
-                <strong>Research your audience & content style</strong>
-                <span>We study your posts, your captions, how your followers engage — before the brief call.</span>
+                <strong data-i18n="os1_title">Research your audience & content style</strong>
+                <span data-i18n="os1_desc">We study your posts, your captions, how your followers engage — before the brief call.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">2</div>
               <div class="step-text">
-                <strong>Write the Korean ebook in your voice</strong>
-                <span>Phrases, vocabulary, cultural context — framed the way you'd explain it to a friend.</span>
+                <strong data-i18n="os2_title">Write the Korean ebook in your voice</strong>
+                <span data-i18n="os2_desc">Phrases, vocabulary, cultural context — framed the way you'd explain it to a friend.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">3</div>
               <div class="step-text">
-                <strong>Design, format, and publish</strong>
-                <span>Every page designed. Cover with your name. Published on a global platform, ready to sell.</span>
+                <strong data-i18n="os3_title">Design, format, and publish</strong>
+                <span data-i18n="os3_desc">Every page designed. Cover with your name. Published on a global platform, ready to sell.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">4</div>
               <div class="step-text">
-                <strong>Set up payments & global distribution</strong>
-                <span>We handle currency, payment processing, and delivery to every buyer worldwide.</span>
+                <strong data-i18n="os4_title">Set up payments & global distribution</strong>
+                <span data-i18n="os4_desc">We handle currency, payment processing, and delivery to every buyer worldwide.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">5</div>
               <div class="step-text">
-                <strong>Handle all customer support</strong>
-                <span>Buyer questions, refund requests, delivery issues — we manage every ticket.</span>
+                <strong data-i18n="os5_title">Handle all customer support</strong>
+                <span data-i18n="os5_desc">Buyer questions, refund requests, delivery issues — we manage every ticket.</span>
               </div>
             </div>
             <div class="process-step">
               <div class="step-num">6</div>
               <div class="step-text">
-                <strong>Monthly revenue report + next promotion caption</strong>
-                <span>Sales, revenue breakdown, your cut. Plus a fresh caption draft every month to keep sales moving.</span>
+                <strong data-i18n="os6_title">Monthly revenue report + next promotion caption</strong>
+                <span data-i18n="os6_desc">Sales, revenue breakdown, your cut. Plus a fresh caption draft every month to keep sales moving.</span>
               </div>
             </div>
           </div>
 
           <div class="diff-callout">
-            <p><strong>The caption service is the differentiator.</strong> Most ebook platforms stop at distribution. We draft the Instagram stories that sell your ebook — every month, permanently — so promotion never becomes your job.</p>
+            <p data-i18n-html="diff_callout"><strong>The caption service is the differentiator.</strong> Most ebook platforms stop at distribution. We draft the Instagram stories that sell your ebook — every month, permanently — so promotion never becomes your job.</p>
           </div>
         </div>
 
@@ -1185,18 +1194,42 @@
     <div class="stats-row">
       <div class="stat-block">
         <div class="sb-num">$19</div>
-        <div class="sb-title">Per ebook sold</div>
-        <div class="sb-desc">Proven sweet spot — high enough to earn real revenue, low enough for followers to buy without hesitation</div>
+        <div class="sb-title" data-i18n="stat1_title">Per ebook sold</div>
+        <div class="sb-desc" data-i18n="stat1_desc">Proven sweet spot — high enough to earn real revenue, low enough for followers to buy without hesitation</div>
       </div>
       <div class="stat-block">
         <div class="sb-num">50%</div>
-        <div class="sb-title">Your revenue share</div>
-        <div class="sb-desc">Every sale, every month. Paid directly to you, no deductions beyond payment processing fees</div>
+        <div class="sb-title" data-i18n="stat2_title">Your revenue share</div>
+        <div class="sb-desc" data-i18n="stat2_desc">Every sale, every month. Paid directly to you, no deductions beyond payment processing fees</div>
       </div>
       <div class="stat-block">
         <div class="sb-num">3–5</div>
-        <div class="sb-title">Days to finished ebook</div>
-        <div class="sb-desc">From brief call to a designed, live, sellable ebook — no back-and-forth delays</div>
+        <div class="sb-title" data-i18n="stat3_title">Days to finished ebook</div>
+        <div class="sb-desc" data-i18n="stat3_desc">From brief call to a designed, live, sellable ebook — no back-and-forth delays</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREDIBILITY STRIP -->
+  <div class="cred-strip">
+    <div class="container">
+      <div class="cred-strip-text">
+        <h3 data-i18n="cred_h3">The model already works. We're applying it to your audience.</h3>
+        <p data-i18n-html="cred_p">Our co-founder spent 3 years running his own ebook business end to end — writing, design, distribution, payment processing, customer support, and monthly promotion. <strong>$100K–$150K in personal annual ebook revenue.</strong> Outcoast is that same system, built for Korean creators with global audiences.</p>
+      </div>
+      <div class="cred-stats">
+        <div class="cred-stat">
+          <div class="cs-number">3yr</div>
+          <div class="cs-label" data-i18n="cred_label1">co-founder's personal ebook business track record</div>
+        </div>
+        <div class="cred-stat">
+          <div class="cs-number">$125K</div>
+          <div class="cs-label" data-i18n="cred_label2">co-founder's average annual ebook revenue — the model we're scaling</div>
+        </div>
+        <div class="cred-stat">
+          <div class="cs-number">$19</div>
+          <div class="cs-label" data-i18n="cred_label3">proven price point for digital language products</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1204,84 +1237,84 @@
   <!-- REVENUE BLOCK -->
   <section id="revenue">
     <div class="container">
-      <p class="section-label">Revenue</p>
-      <h2 class="section-title">Sponsored posts build their brand. <span class="accent">Your ebook builds yours.</span></h2>
-      <p class="section-subtitle">Keep your brand deals — and add the income stream that pays you every month under your own name. Projections based on 2024–2025 creator economy benchmarks and our co-founder's 3 years of real ebook sales data.</p>
+      <p class="section-label" data-i18n="rev_section_label">Revenue</p>
+      <h2 class="section-title" data-i18n-html="rev_h2">Sponsored posts build their brand. <span class="accent">Your ebook builds yours.</span></h2>
+      <p class="section-subtitle" data-i18n="rev_sub">Keep your brand deals — and add the income stream that pays you every month under your own name. Projections based on 2024–2025 creator economy benchmarks and our co-founder's 3 years of real ebook sales data.</p>
 
       <div class="revenue-grid">
 
         <div class="rev-left">
-          <div class="rev-label">Real sales projection</div>
-          <h3>Passive monthly income by audience size</h3>
+          <div class="rev-label" data-i18n="rev_left_label">Real sales projection</div>
+          <h3 data-i18n="rev_left_h3">Passive monthly income by audience size</h3>
 
           <table class="rev-table">
             <thead>
               <tr>
-                <th>Instagram followers</th>
-                <th>Your 50% — monthly / yearly</th>
+                <th data-i18n="rev_th1">Instagram followers</th>
+                <th data-i18n="rev_th2">Your 50% — monthly / yearly</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>50K followers</td>
-                <td>$190 – $380 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $2,280 – $4,560 / year</small></td>
+                <td data-i18n="rev_row1_f">50K followers</td>
+                <td data-i18n-html="rev_row1_v">$190 – $380 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $2,280 – $4,560 / year</small></td>
               </tr>
               <tr>
-                <td>100K followers</td>
-                <td>$380 – $760 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $4,560 – $9,120 / year</small></td>
+                <td data-i18n="rev_row2_f">100K followers</td>
+                <td data-i18n-html="rev_row2_v">$380 – $760 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $4,560 – $9,120 / year</small></td>
               </tr>
               <tr>
-                <td>200K followers</td>
-                <td>$760 – $1,520 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $9,120 – $18,240 / year</small></td>
+                <td data-i18n="rev_row3_f">200K followers</td>
+                <td data-i18n-html="rev_row3_v">$760 – $1,520 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $9,120 – $18,240 / year</small></td>
               </tr>
               <tr>
-                <td>300K followers</td>
-                <td>$1,140 – $2,280 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $13,680 – $27,360 / year</small></td>
+                <td data-i18n="rev_row4_f">300K followers</td>
+                <td data-i18n-html="rev_row4_v">$1,140 – $2,280 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $13,680 – $27,360 / year</small></td>
               </tr>
             </tbody>
           </table>
 
-          <p class="rev-source">Based on 2024–2025 creator economy benchmarks and 3 years of real ebook sales data. Methodology: weekly story promotion × 10% average story reach × 2–4% swipe-up rate on story views × 5% purchase conversion × $19 price × your 50% revenue share.</p>
+          <p class="rev-source" data-i18n="rev_source">Based on 2024–2025 creator economy benchmarks and 3 years of real ebook sales data. Methodology: weekly story promotion × 10% average story reach × 2–4% swipe-up rate on story views × 5% purchase conversion × $19 price × your 50% revenue share.</p>
         </div>
 
         <div class="rev-right">
-          <div class="rev-label" style="color: var(--teal);">Zero production cost</div>
-          <h3>No writing. No design.<br>No customer support.</h3>
+          <div class="rev-label" style="color: var(--teal);" data-i18n="rev_right_label">Zero production cost</div>
+          <h3 data-i18n-html="rev_right_h3">No writing. No design.<br>No customer support.</h3>
 
           <ul class="no-cost-list">
             <li>
               <div class="nc-check">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              No production fees or upfront costs
+              <span data-i18n="nc1">No production fees or upfront costs</span>
             </li>
             <li>
               <div class="nc-check">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              No writing, editing, or design work
+              <span data-i18n="nc2">No writing, editing, or design work</span>
             </li>
             <li>
               <div class="nc-check">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              No payment setup or distribution management
+              <span data-i18n="nc3">No payment setup or distribution management</span>
             </li>
             <li>
               <div class="nc-check">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              No customer support or refund handling
+              <span data-i18n="nc4">No customer support or refund handling</span>
             </li>
             <li>
               <div class="nc-check">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              No monthly promotion copy — we write your captions
+              <span data-i18n="nc5">No monthly promotion copy — we write your captions</span>
             </li>
           </ul>
 
-          <p class="rev-note">You invest 30 minutes in a brief call. We deliver a finished, sellable Korean ebook in 3–5 days — and keep it selling for you every month after that. Every sale reinforces <em>your</em> name, not a sponsor's.</p>
+          <p class="rev-note" data-i18n-html="rev_note">You invest 30 minutes in a brief call. We deliver a finished, sellable Korean ebook in 3–5 days — and keep it selling for you every month after that. Every sale reinforces <em>your</em> name, not a sponsor's.</p>
         </div>
 
       </div>
@@ -1290,7 +1323,7 @@
         <div class="proof-photo-wrap">
           <img src="fake_payments_selfie.ea747cc9.jpg" alt="Phone screen full of $19 Stripe payment notifications" class="proof-photo">
         </div>
-        <p class="proof-caption"><strong>This is what $19 × daily looks like.</strong> 3 years of real ebook sales — the exact model we run for you.</p>
+        <p class="proof-caption" data-i18n-html="proof_caption"><strong>This is what $19 × daily looks like.</strong> 3 years of real ebook sales — the exact model we run for you.</p>
       </div>
 
     </div>
@@ -1299,9 +1332,9 @@
   <!-- WHO IT'S FOR -->
   <section id="for-you" style="background: var(--bg-alt);">
     <div class="container">
-      <p class="section-label">Who it's for</p>
-      <h2 class="section-title">You're a fit if your audience <span class="accent">wants to learn Korean.</span></h2>
-      <p class="section-subtitle">We work with a specific profile. If you match, the ebook will sell — because your followers are already the right audience for it.</p>
+      <p class="section-label" data-i18n="for_label">Who it's for</p>
+      <h2 class="section-title" data-i18n-html="for_h2">You're a fit if your audience <span class="accent">wants to learn Korean.</span></h2>
+      <p class="section-subtitle" data-i18n="for_sub">We work with a specific profile. If you match, the ebook will sell — because your followers are already the right audience for it.</p>
 
       <div class="fit-grid">
 
@@ -1309,36 +1342,36 @@
           <div class="fc-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h4>Following size</h4>
+          <h4 data-i18n="for_card1_h4">Following size</h4>
           <div class="fc-value">50K – 300K</div>
-          <p>Instagram. An engaged, global audience that consistently interacts with your Korean culture content.</p>
+          <p data-i18n="for_card1_p">Instagram. An engaged, global audience that consistently interacts with your Korean culture content.</p>
         </div>
 
         <div class="fit-card">
           <div class="fc-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <h4>Content type</h4>
-          <div class="fc-value">Lifestyle & culture</div>
-          <p>Daily life, food, travel, Korean culture — content that naturally draws people curious about Korea and the language.</p>
+          <h4 data-i18n="for_card2_h4">Content type</h4>
+          <div class="fc-value" data-i18n="for_card2_val">Lifestyle & culture</div>
+          <p data-i18n="for_card2_p">Daily life, food, travel, Korean culture — content that naturally draws people curious about Korea and the language.</p>
         </div>
 
         <div class="fit-card">
           <div class="fc-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <h4>Audience nationality</h4>
-          <div class="fc-value">Mostly non-Korean</div>
-          <p>Your followers are international — people who love Korean culture and <em>want</em> to learn the language. That's exactly who buys a $19 Korean learning ebook.</p>
+          <h4 data-i18n="for_card3_h4">Audience nationality</h4>
+          <div class="fc-value" data-i18n="for_card3_val">Mostly non-Korean</div>
+          <p data-i18n-html="for_card3_p">Your followers are international — people who love Korean culture and <em>want</em> to learn the language. That's exactly who buys a $19 Korean learning ebook.</p>
         </div>
 
         <div class="fit-card">
           <div class="fc-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
-          <h4>Existing products</h4>
-          <div class="fc-value">Zero required</div>
-          <p>You have the audience, the trust, and the Korean culture credibility. We add the product layer. No monetization experience required.</p>
+          <h4 data-i18n="for_card4_h4">Existing products</h4>
+          <div class="fc-value" data-i18n="for_card4_val">Zero required</div>
+          <p data-i18n="for_card4_p">You have the audience, the trust, and the Korean culture credibility. We add the product layer. No monetization experience required.</p>
         </div>
 
       </div>
@@ -1348,9 +1381,9 @@
   <!-- TEAM -->
   <section class="team-section" id="team">
     <div class="container">
-      <p class="section-label">The team</p>
-      <h2 class="section-title">The people behind <span class="accent">your ebook.</span></h2>
-      <p class="section-subtitle">Two people. One who knows exactly how to sell ebooks to global audiences. One who's spent years inside Korea's leading startup and innovation organizations.</p>
+      <p class="section-label" data-i18n="team_label">The team</p>
+      <h2 class="section-title" data-i18n-html="team_h2">The people behind <span class="accent">your ebook.</span></h2>
+      <p class="section-subtitle" data-i18n="team_sub">Two entrepreneurs. One who knows exactly how to sell ebooks to global audiences. One who's spent years inside Korea's leading startup and innovation organizations.</p>
 
       <div class="team-grid">
 
@@ -1358,8 +1391,8 @@
           <img src="taewhan.jpeg" alt="Tae-Hwan Chung" class="team-photo" style="object-position: center 70%;">
           <div class="team-info">
             <h3>Tae-Hwan Chung</h3>
-            <div class="team-role">Ebook Sales & Operations</div>
-            <p>3 years building and selling ebooks to global audiences — from content creation to distribution, payment systems, customer management, and monthly promotion cycles. The $100K–$150K annual revenue behind Outcoast's model is his track record, not a benchmark.</p>
+            <div class="team-role" data-i18n="team1_role">Ebook Sales & Operations</div>
+            <p data-i18n="team1_bio">3 years building and selling ebooks to global audiences — from content creation to distribution, payment systems, customer management, and monthly promotion cycles. The $100K–$150K annual revenue behind Outcoast's model is his track record, not a benchmark.</p>
             <div class="team-tags">
               <span class="team-tag">3yr ebook sales</span>
               <span class="team-tag">$100K–$150K / year</span>
@@ -1373,8 +1406,8 @@
           <img src="sofian.jpeg" alt="Sofian Meguellati — Korea market & pitch strategy" class="team-photo">
           <div class="team-info">
             <h3>Sofian Meguellati</h3>
-            <div class="team-role">Korea Market & Strategy</div>
-            <p>Entrepreneur from Paris, deeply embedded in Korea's creator and culture economy. Recognized by KOCCA — Korea's government body for content and culture industries — and featured on TBS as a foreign voice inside the Korean ecosystem. His network inside Korea's content and creator world is how we understand what Korean audiences actually buy.</p>
+            <div class="team-role" data-i18n="team2_role">Korea Market & Strategy</div>
+            <p data-i18n="team2_bio">Entrepreneur from Paris, deeply embedded in Korea's creator and culture economy. Recognized by KOCCA — Korea's government body for content and culture industries — and featured on TBS as a foreign voice inside the Korean ecosystem. His network inside Korea's content and creator world is how we understand what Korean audiences actually buy.</p>
             <div class="team-tags">
               <span class="team-tag">KOCCA</span>
               <span class="team-tag">TBS Featured</span>
@@ -1391,39 +1424,39 @@
   <!-- FAQ -->
   <section id="faq" class="faq-section">
     <div class="container">
-      <p class="section-label">FAQ</p>
-      <h2 class="section-title">The questions you should <span class="accent">be asking.</span></h2>
+      <p class="section-label" data-i18n="faq_label">FAQ</p>
+      <h2 class="section-title" data-i18n-html="faq_h2">The questions you should <span class="accent">be asking.</span></h2>
 
       <div class="faq-grid">
 
         <div class="faq-card">
-          <h4>Does my audience need to know I didn't write it myself?</h4>
-          <p>The ebook is in your voice — you briefed it, approved every word, and put your name on it. Think of it the way authors work with editors or ghostwriters. You're the creative director. The knowledge, the style, and the cultural lens are yours. We handle the production.</p>
+          <h4 data-i18n="faq1_q">Does my audience need to know I didn't write it myself?</h4>
+          <p data-i18n="faq1_a">The ebook is in your voice — you briefed it, approved every word, and put your name on it. Think of it the way authors work with editors or ghostwriters. You're the creative director. The knowledge, the style, and the cultural lens are yours. We handle the production.</p>
         </div>
 
         <div class="faq-card">
-          <h4>What if the draft doesn't sound like me?</h4>
-          <p>We rewrite it. No extra cost, no argument. The 30-minute brief call is specifically designed to capture your real phrases, how you explain things, and what makes your content feel like you. If the first draft misses, we fix it until it's right.</p>
+          <h4 data-i18n="faq2_q">What if the draft doesn't sound like me?</h4>
+          <p data-i18n="faq2_a">We rewrite it. No extra cost, no argument. The 30-minute brief call is specifically designed to capture your real phrases, how you explain things, and what makes your content feel like you. If the first draft misses, we fix it until it's right.</p>
         </div>
 
         <div class="faq-card">
-          <h4>How and when do I get paid?</h4>
-          <p>Monthly, directly to your account. We handle all payment processing and currency conversion. You receive a clean monthly revenue report with total sales, buyer breakdown, and your exact cut — no ambiguity, no manual calculations on your end.</p>
+          <h4 data-i18n="faq3_q">How and when do I get paid?</h4>
+          <p data-i18n="faq3_a">Monthly, directly to your account. We handle all payment processing and currency conversion. You receive a clean monthly revenue report with total sales, buyer breakdown, and your exact cut — no ambiguity, no manual calculations on your end.</p>
         </div>
 
         <div class="faq-card">
-          <h4>What if the ebook doesn't sell?</h4>
-          <p>You've lost 30 minutes. We've lost 3–5 days of work — so we're more motivated than anyone to make it sell. That's why we draft your monthly promotion captions and help you re-promote every 4–6 weeks. A single story post to 100K followers typically drives 20–40 sales. The model works when the ebook reaches the audience.</p>
+          <h4 data-i18n="faq4_q">What if the ebook doesn't sell?</h4>
+          <p data-i18n="faq4_a">You've lost 30 minutes. We've lost 3–5 days of work — so we're more motivated than anyone to make it sell. That's why we draft your monthly promotion captions and help you re-promote every 4–6 weeks. A single story post to 100K followers typically drives 20–40 sales. The model works when the ebook reaches the audience.</p>
         </div>
 
         <div class="faq-card">
-          <h4>What does the partnership agreement look like?</h4>
-          <p>You own the content — your name, your voice, your creative work. Outcoast holds exclusive distribution rights and manages the sales page, payments, and monthly promotion. We earn only when you earn, so our interests are permanently aligned. The partnership can be ended with 30 days notice, at which point you retain full rights to the content.</p>
+          <h4 data-i18n="faq5_q">What does the partnership agreement look like?</h4>
+          <p data-i18n="faq5_a">You own the content — your name, your voice, your creative work. Outcoast holds exclusive distribution rights and manages the sales page, payments, and monthly promotion. We earn only when you earn, so our interests are permanently aligned. The partnership can be ended with 30 days notice, at which point you retain full rights to the content.</p>
         </div>
 
         <div class="faq-card">
-          <h4>Where is the ebook sold and who manages the sales page?</h4>
-          <p>We build and manage the entire sales page — design, copy, checkout, and delivery. You get a clean link to share with your audience. No platform accounts to set up, no dashboard to manage. We handle everything from the sale to the download.</p>
+          <h4 data-i18n="faq6_q">Where is the ebook sold and who manages the sales page?</h4>
+          <p data-i18n="faq6_a">We build and manage the entire sales page — design, copy, checkout, and delivery. You get a clean link to share with your audience. No platform accounts to set up, no dashboard to manage. We handle everything from the sale to the download.</p>
         </div>
 
       </div>
@@ -1435,33 +1468,285 @@
     <div class="container">
       <div class="fc-scarcity">
         <span class="scarcity-dot"></span>
-        5 Korean creator spots — first come, first partnered
+        <span data-i18n="apply_scarcity">5 Korean creator spots — first come, first partnered</span>
       </div>
-      <h2>Turn your global following<br>into <em>Korean culture revenue.</em></h2>
-      <p class="fc-sub">One 30-minute call. A sellable Korean ebook under your name in 3–5 days. We handle everything else — permanently.</p>
+      <h2 data-i18n-html="apply_h2">Turn your global following<br>into <em>Korean culture revenue.</em></h2>
+      <p class="fc-sub" data-i18n="apply_sub">One 30-minute call. A sellable Korean ebook under your name in 3–5 days. We handle everything else — permanently.</p>
       <!-- Replace action URL with your Formspree ID: https://formspree.io/f/YOUR_ID -->
       <form class="apply-form" action="https://formspree.io/f/sofian@outcoast.kr" method="POST">
-        <input type="text" name="instagram" placeholder="Your Instagram @handle" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <button type="submit">Apply — 5 spots</button>
+        <input type="text" name="instagram" data-i18n-ph="apply_ph_ig" placeholder="Your Instagram @handle" required>
+        <input type="email" name="email" data-i18n-ph="apply_ph_email" placeholder="Your email" required>
+        <button type="submit" data-i18n="apply_btn">Apply — 5 spots</button>
       </form>
-      <p class="apply-form-note">No cost to apply. No commitment until you approve the ebook.</p>
+      <p class="apply-form-note" data-i18n="apply_note">No cost to apply. No commitment until you approve the ebook.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <img src="BI/bi_black.png" alt="Outcoast." class="footer-logo">
-    <p>&copy; 2026 · Made in Seoul · <a href="mailto:sofian@outcoast.kr">sofian@outcoast.kr</a></p>
+    <p data-i18n-html="footer_copy">&copy; 2026 · Made in Seoul · <a href="mailto:sofian@outcoast.kr">sofian@outcoast.kr</a></p>
   </footer>
 
   <script>
-    // Smooth mobile nav close on link click
+    // Mobile nav close on link click
     document.querySelectorAll('#navLinks a').forEach(function(link) {
       link.addEventListener('click', function() {
         document.getElementById('navLinks').classList.remove('open');
       });
     });
+
+    // --- i18n ---
+    var translations = {
+      en: {
+        nav_how: "How it works", nav_team: "Team", nav_rev: "Revenue",
+        nav_for: "Who it's for", nav_faq: "FAQ", nav_apply: "Apply — 5 spots",
+        hero_badge: "5 creator spots — applications open",
+        hero_h1: 'Your followers want to learn Korean.<br><em>We build the ebook — under your name.</em>',
+        hero_sub: "We ghostwrite a Korean learning ebook in your voice, design it, handle payments and distribution — and write your Instagram promotion captions. You approve it. You share it. You earn 50%.",
+        hero_cred: 'Built by a team with <strong>3 years of ebook sales experience</strong> — $100K–$150K in annual revenue managed end to end',
+        hero_cta1: "Apply for a creator spot", hero_cta2: "See how it works ↓",
+        cred_h3: "The model already works. We're applying it to your audience.",
+        cred_p: 'Our co-founder spent 3 years running his own ebook business end to end — writing, design, distribution, payment processing, customer support, and monthly promotion. <strong>$100K–$150K in personal annual ebook revenue.</strong> Outcoast is that same system, built for Korean creators with global audiences.',
+        cred_label1: "co-founder's personal ebook business track record",
+        cred_label2: "co-founder's average annual ebook revenue — the model we're scaling",
+        cred_label3: "proven price point for digital language products",
+        process_label: "How it works",
+        process_h2: 'You bring the audience.<br>We build <span class="accent">everything else.</span>',
+        process_sub: "One 30-minute call. A finished, sellable ebook in 3–5 days. We handle the rest permanently.",
+        process_yours_label: "Your side — 4 steps, done once",
+        process_yours_h3: "30 minutes of your time.<br>Then just share the link.",
+        cs1_title: "30-min cultural brief call",
+        cs1_desc: "We capture your real Korean expressions, your personality, how you explain things to followers. This is where the ebook gets your voice.",
+        cs2_title: "Review the content draft",
+        cs2_desc: "If it doesn't sound like you, we rewrite it. No extra cost. No argument. You approve when it's right.",
+        cs3_title: "Sign off on the final ebook",
+        cs3_desc: "Check the design, cover, and layout. You get final say before anything goes live.",
+        cs4_title: "Post the link — we write the caption",
+        cs4_desc: "We draft your first Instagram story promotion. Copy, paste, post. That's it.",
+        process_ours_label: "Our side — everything, permanently",
+        process_ours_h3: "Research, write, design, sell,<br>support, and report.",
+        os1_title: "Research your audience & content style",
+        os1_desc: "We study your posts, your captions, how your followers engage — before the brief call.",
+        os2_title: "Write the Korean ebook in your voice",
+        os2_desc: "Phrases, vocabulary, cultural context — framed the way you'd explain it to a friend.",
+        os3_title: "Design, format, and publish",
+        os3_desc: "Every page designed. Cover with your name. Published on a global platform, ready to sell.",
+        os4_title: "Set up payments & global distribution",
+        os4_desc: "We handle currency, payment processing, and delivery to every buyer worldwide.",
+        os5_title: "Handle all customer support",
+        os5_desc: "Buyer questions, refund requests, delivery issues — we manage every ticket.",
+        os6_title: "Monthly revenue report + next promotion caption",
+        os6_desc: "Sales, revenue breakdown, your cut. Plus a fresh caption draft every month to keep sales moving.",
+        diff_callout: '<strong>The caption service is the differentiator.</strong> Most ebook platforms stop at distribution. We draft the Instagram stories that sell your ebook — every month, permanently — so promotion never becomes your job.',
+        stat1_title: "Per ebook sold",
+        stat1_desc: "Proven sweet spot — high enough to earn real revenue, low enough for followers to buy without hesitation",
+        stat2_title: "Your revenue share",
+        stat2_desc: "Every sale, every month. Paid directly to you, no deductions beyond payment processing fees",
+        stat3_title: "Days to finished ebook",
+        stat3_desc: "From brief call to a designed, live, sellable ebook — no back-and-forth delays",
+        rev_section_label: "Revenue",
+        rev_h2: 'Sponsored posts build their brand. <span class="accent">Your ebook builds yours.</span>',
+        rev_sub: "Keep your brand deals — and add the income stream that pays you every month under your own name. Projections based on 2024–2025 creator economy benchmarks and our co-founder's 3 years of real ebook sales data.",
+        rev_left_label: "Real sales projection",
+        rev_left_h3: "Passive monthly income by audience size",
+        rev_th1: "Instagram followers", rev_th2: "Your 50% — monthly / yearly",
+        rev_row1_f: "50K followers",
+        rev_row1_v: '$190 – $380 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $2,280 – $4,560 / year</small>',
+        rev_row2_f: "100K followers",
+        rev_row2_v: '$380 – $760 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $4,560 – $9,120 / year</small>',
+        rev_row3_f: "200K followers",
+        rev_row3_v: '$760 – $1,520 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $9,120 – $18,240 / year</small>',
+        rev_row4_f: "300K followers",
+        rev_row4_v: '$1,140 – $2,280 / mo<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $13,680 – $27,360 / year</small>',
+        rev_source: "Based on 2024–2025 creator economy benchmarks and 3 years of real ebook sales data. Methodology: weekly story promotion × 10% average story reach × 2–4% swipe-up rate on story views × 5% purchase conversion × $19 price × your 50% revenue share.",
+        rev_right_label: "Zero production cost",
+        rev_right_h3: "No writing. No design.<br>No customer support.",
+        nc1: "No production fees or upfront costs",
+        nc2: "No writing, editing, or design work",
+        nc3: "No payment setup or distribution management",
+        nc4: "No customer support or refund handling",
+        nc5: "No monthly promotion copy — we write your captions",
+        rev_note: 'You invest 30 minutes in a brief call. We deliver a finished, sellable Korean ebook in 3–5 days — and keep it selling for you every month after that. Every sale reinforces <em>your</em> name, not a sponsor\'s.',
+        proof_caption: '<strong>This is what $19 × daily looks like.</strong> 3 years of real ebook sales — the exact model we run for you.',
+        for_label: "Who it's for",
+        for_h2: 'You\'re a fit if your audience <span class="accent">wants to learn Korean.</span>',
+        for_sub: "We work with a specific profile. If you match, the ebook will sell — because your followers are already the right audience for it.",
+        for_card1_h4: "Following size",
+        for_card1_p: "Instagram. An engaged, global audience that consistently interacts with your Korean culture content.",
+        for_card2_h4: "Content type", for_card2_val: "Lifestyle & culture",
+        for_card2_p: "Daily life, food, travel, Korean culture — content that naturally draws people curious about Korea and the language.",
+        for_card3_h4: "Audience nationality", for_card3_val: "Mostly non-Korean",
+        for_card3_p: 'Your followers are international — people who love Korean culture and <em>want</em> to learn the language. That\'s exactly who buys a $19 Korean learning ebook.',
+        for_card4_h4: "Existing products", for_card4_val: "Zero required",
+        for_card4_p: "You have the audience, the trust, and the Korean culture credibility. We add the product layer. No monetization experience required.",
+        team_label: "The team",
+        team_h2: 'The people behind <span class="accent">your ebook.</span>',
+        team_sub: "Two entrepreneurs. One who knows exactly how to sell ebooks to global audiences. One who's spent years inside Korea's leading startup and innovation organizations.",
+        team1_role: "Ebook Sales & Operations",
+        team1_bio: "3 years building and selling ebooks to global audiences — from content creation to distribution, payment systems, customer management, and monthly promotion cycles. The $100K–$150K annual revenue behind Outcoast's model is his track record, not a benchmark.",
+        team2_role: "Korea Market & Strategy",
+        team2_bio: "Entrepreneur from Paris, deeply embedded in Korea's creator and culture economy. Recognized by KOCCA — Korea's government body for content and culture industries — and featured on TBS as a foreign voice inside the Korean ecosystem. His network inside Korea's content and creator world is how we understand what Korean audiences actually buy.",
+        faq_label: "FAQ",
+        faq_h2: 'The questions you should <span class="accent">be asking.</span>',
+        faq1_q: "Does my audience need to know I didn't write it myself?",
+        faq1_a: "The ebook is in your voice — you briefed it, approved every word, and put your name on it. Think of it the way authors work with editors or ghostwriters. You're the creative director. The knowledge, the style, and the cultural lens are yours. We handle the production.",
+        faq2_q: "What if the draft doesn't sound like me?",
+        faq2_a: "We rewrite it. No extra cost, no argument. The 30-minute brief call is specifically designed to capture your real phrases, how you explain things, and what makes your content feel like you. If the first draft misses, we fix it until it's right.",
+        faq3_q: "How and when do I get paid?",
+        faq3_a: "Monthly, directly to your account. We handle all payment processing and currency conversion. You receive a clean monthly revenue report with total sales, buyer breakdown, and your exact cut — no ambiguity, no manual calculations on your end.",
+        faq4_q: "What if the ebook doesn't sell?",
+        faq4_a: "You've lost 30 minutes. We've lost 3–5 days of work — so we're more motivated than anyone to make it sell. That's why we draft your monthly promotion captions and help you re-promote every 4–6 weeks. A single story post to 100K followers typically drives 20–40 sales. The model works when the ebook reaches the audience.",
+        faq5_q: "What does the partnership agreement look like?",
+        faq5_a: "You own the content — your name, your voice, your creative work. Outcoast holds exclusive distribution rights and manages the sales page, payments, and monthly promotion. We earn only when you earn, so our interests are permanently aligned. The partnership can be ended with 30 days notice, at which point you retain full rights to the content.",
+        faq6_q: "Where is the ebook sold and who manages the sales page?",
+        faq6_a: "We build and manage the entire sales page — design, copy, checkout, and delivery. You get a clean link to share with your audience. No platform accounts to set up, no dashboard to manage. We handle everything from the sale to the download.",
+        apply_scarcity: "5 Korean creator spots — first come, first partnered",
+        apply_h2: 'Turn your global following<br>into <em>Korean culture revenue.</em>',
+        apply_sub: "One 30-minute call. A sellable Korean ebook under your name in 3–5 days. We handle everything else — permanently.",
+        apply_ph_ig: "Your Instagram @handle", apply_ph_email: "Your email",
+        apply_btn: "Apply — 5 spots",
+        apply_note: "No cost to apply. No commitment until you approve the ebook.",
+        footer_copy: '&copy; 2026 · Made in Seoul · <a href="mailto:sofian@outcoast.kr">sofian@outcoast.kr</a>'
+      },
+      ko: {
+        nav_how: "작동 방식", nav_team: "팀 소개", nav_rev: "수익",
+        nav_for: "대상 크리에이터", nav_faq: "자주 묻는 질문", nav_apply: "신청하기 — 5팀",
+        hero_badge: "크리에이터 5팀 모집 중",
+        hero_h1: '팔로워가 한국어를 배우고 싶어합니다.<br><em>크리에이터님의 이름으로 전자책을 만들어 드립니다.</em>',
+        hero_sub: "크리에이터님의 표현으로 만든 한국어 전자책. 저희가 집필하고, 디자인하고, 판매합니다. 크리에이터님은 공유만 하세요. 수익의 50%는 크리에이터님 몫입니다.",
+        hero_cred: '공동 창업자의 <strong>3년간 전자책 판매 경험</strong> — 연간 $100K–$150K 수익을 직접 운영',
+        hero_cta1: "크리에이터 신청하기", hero_cta2: "작동 방식 보기 ↓",
+        cred_h3: "검증된 모델을 크리에이터님의 팔로워에게 적용합니다.",
+        cred_p: '공동 창업자는 3년간 자신의 전자책 비즈니스를 직접 운영했습니다 — 기획, 디자인, 유통, 결제 처리, 고객 지원, 월별 홍보까지 전부. <strong>연간 개인 전자책 수익 $100K–$150K.</strong> Outcoast는 그 시스템을 글로벌 팔로워를 보유한 한국 크리에이터에게 적용한 것입니다.',
+        cred_label1: "공동 창업자의 개인 전자책 비즈니스 운영 기간",
+        cred_label2: "공동 창업자의 연간 평균 전자책 수익 — 저희가 확장하는 모델",
+        cred_label3: "디지털 언어 상품의 검증된 가격",
+        process_label: "작동 방식",
+        process_h2: '크리에이터님은 팔로워를 데려오세요.<br>나머지는 <span class="accent">저희가 만듭니다.</span>',
+        process_sub: "30분 통화 한 번. 3~5일 내 완성된 전자책. 나머지는 저희가 영구적으로 운영합니다.",
+        process_yours_label: "크리에이터님의 역할 — 4단계, 한 번만",
+        process_yours_h3: "30분만 내어주세요.<br>이후엔 링크만 공유하면 됩니다.",
+        cs1_title: "30분 문화 브리핑 통화",
+        cs1_desc: "크리에이터님의 실제 한국어 표현, 말투, 팔로워에게 설명하는 방식을 파악합니다. 전자책이 크리에이터님의 목소리를 담는 과정입니다.",
+        cs2_title: "콘텐츠 초안 검토",
+        cs2_desc: "크리에이터님답지 않다면 다시 씁니다. 추가 비용 없음. 이견 없음. 마음에 드실 때 승인하시면 됩니다.",
+        cs3_title: "최종 전자책 승인",
+        cs3_desc: "디자인, 표지, 레이아웃을 확인하세요. 공개 전 최종 결정권은 크리에이터님에게 있습니다.",
+        cs4_title: "링크 게시 — 캡션은 저희가 씁니다",
+        cs4_desc: "첫 번째 인스타그램 스토리 홍보 문구를 저희가 작성합니다. 복사, 붙여넣기, 게시. 끝입니다.",
+        process_ours_label: "저희 역할 — 모든 것, 영구적으로",
+        process_ours_h3: "리서치, 집필, 디자인, 판매,<br>고객 지원, 그리고 리포트.",
+        os1_title: "팔로워 및 콘텐츠 스타일 리서치",
+        os1_desc: "브리핑 통화 전에 크리에이터님의 게시물, 캡션, 팔로워 반응을 분석합니다.",
+        os2_title: "크리에이터님의 목소리로 한국어 전자책 집필",
+        os2_desc: "표현, 어휘, 문화적 맥락 — 친구에게 설명하듯 크리에이터님만의 방식으로.",
+        os3_title: "디자인, 편집, 출판",
+        os3_desc: "모든 페이지를 디자인합니다. 크리에이터님의 이름이 들어간 표지. 글로벌 플랫폼에 판매 준비 완료로 출판됩니다.",
+        os4_title: "결제 및 글로벌 유통 설정",
+        os4_desc: "통화, 결제 처리, 전 세계 구매자에게 전달 — 저희가 모두 처리합니다.",
+        os5_title: "모든 고객 지원 처리",
+        os5_desc: "구매자 문의, 환불 요청, 전달 문제 — 모든 티켓을 저희가 관리합니다.",
+        os6_title: "월간 수익 리포트 + 다음 홍보 캡션",
+        os6_desc: "판매량, 수익 내역, 크리에이터님의 몫. 매월 새로운 캡션 초안도 제공합니다.",
+        diff_callout: '<strong>캡션 서비스가 차별점입니다.</strong> 대부분의 전자책 플랫폼은 유통에서 멈춥니다. 저희는 크리에이터님의 전자책을 판매하는 인스타그램 스토리를 매월 영구적으로 작성해 드립니다 — 홍보가 크리에이터님의 부담이 되지 않도록.',
+        stat1_title: "전자책 1권당",
+        stat1_desc: "검증된 최적가 — 실제 수익을 낼 만큼 충분히 높고, 팔로워가 망설임 없이 구매할 만큼 낮습니다",
+        stat2_title: "크리에이터님의 수익 비율",
+        stat2_desc: "매 판매, 매월. 결제 처리 수수료 외 추가 공제 없이 직접 지급됩니다",
+        stat3_title: "완성된 전자책까지 소요 일수",
+        stat3_desc: "브리핑 통화부터 완성된 판매 가능한 전자책까지 — 불필요한 지연 없이",
+        rev_section_label: "수익",
+        rev_h2: '협찬 게시물은 그 브랜드를 키웁니다. <span class="accent">전자책은 크리에이터님을 키웁니다.</span>',
+        rev_sub: "브랜드 딜은 그대로 유지하면서 — 크리에이터님의 이름으로 매월 수익을 내는 수입원을 추가하세요. 2024–2025 크리에이터 경제 벤치마크와 공동 창업자의 3년 실제 전자책 판매 데이터를 기반으로 합니다.",
+        rev_left_label: "실제 판매 예상치",
+        rev_left_h3: "팔로워 규모별 월간 예상 수익",
+        rev_th1: "인스타그램 팔로워", rev_th2: "크리에이터님 50% — 월간 / 연간",
+        rev_row1_f: "팔로워 5만 명",
+        rev_row1_v: '$190 – $380 / 월<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $2,280 – $4,560 / 연</small>',
+        rev_row2_f: "팔로워 10만 명",
+        rev_row2_v: '$380 – $760 / 월<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $4,560 – $9,120 / 연</small>',
+        rev_row3_f: "팔로워 20만 명",
+        rev_row3_v: '$760 – $1,520 / 월<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $9,120 – $18,240 / 연</small>',
+        rev_row4_f: "팔로워 30만 명",
+        rev_row4_v: '$1,140 – $2,280 / 월<br><small style="color:var(--text-muted);font-size:0.75em;">≈ $13,680 – $27,360 / 연</small>',
+        rev_source: "2024–2025 크리에이터 경제 벤치마크와 3년간의 실제 전자책 판매 데이터 기반. 산출 방식: 주 1회 스토리 홍보 × 평균 10% 스토리 도달률 × 스토리 조회수 대비 2~4% 스와이프업 × 5% 구매 전환율 × $19 × 크리에이터님 수익 비율 50%.",
+        rev_right_label: "생산 비용 없음",
+        rev_right_h3: "집필도, 디자인도,<br>고객 지원도 없습니다.",
+        nc1: "초기 제작 비용 또는 선불 비용 없음",
+        nc2: "집필, 편집, 디자인 작업 없음",
+        nc3: "결제 설정 또는 유통 관리 없음",
+        nc4: "고객 지원 또는 환불 처리 없음",
+        nc5: "월별 홍보 문구 없음 — 저희가 캡션을 작성합니다",
+        rev_note: '30분의 브리핑 통화를 투자하세요. 3~5일 내 완성된 판매 가능한 한국어 전자책을 드립니다 — 그리고 이후 매월 계속 판매되도록 운영합니다. 모든 판매는 스폰서가 아닌 <em>크리에이터님</em>의 이름을 강화합니다.',
+        proof_caption: '<strong>$19 × 매일 — 이런 모습입니다.</strong> 3년간의 실제 전자책 판매 — 저희가 크리에이터님을 위해 운영하는 바로 그 모델입니다.',
+        for_label: "대상 크리에이터",
+        for_h2: '팔로워가 한국어를 배우고 싶어한다면, <span class="accent">크리에이터님이 대상입니다.</span>',
+        for_sub: "저희는 특정 프로필의 크리에이터와 함께 일합니다. 조건이 맞다면 전자책은 팔립니다 — 크리에이터님의 팔로워가 이미 적합한 구매자이기 때문입니다.",
+        for_card1_h4: "팔로워 규모",
+        for_card1_p: "인스타그램. 한국 문화 콘텐츠에 꾸준히 반응하는 글로벌 팔로워.",
+        for_card2_h4: "콘텐츠 유형", for_card2_val: "라이프스타일 & 문화",
+        for_card2_p: "일상, 음식, 여행, 한국 문화 — 한국과 언어에 관심 있는 사람들이 자연스럽게 모이는 콘텐츠.",
+        for_card3_h4: "팔로워 국적", for_card3_val: "주로 비한국인",
+        for_card3_p: '크리에이터님의 팔로워는 글로벌 — 한국 문화를 사랑하고 언어를 <em>배우고 싶어하는</em> 사람들입니다. $19짜리 한국어 전자책을 구매할 정확한 대상입니다.',
+        for_card4_h4: "기존 상품", for_card4_val: "없어도 됩니다",
+        for_card4_p: "팔로워, 신뢰, 한국 문화 전문성은 이미 갖추고 계십니다. 저희가 상품을 더합니다. 수익화 경험은 필요 없습니다.",
+        team_label: "팀 소개",
+        team_h2: '<span class="accent">전자책</span> 뒤에 있는 사람들.',
+        team_sub: "두 명의 기업가. 한 명은 글로벌 팔로워에게 전자책을 판매하는 방법을 정확히 압니다. 다른 한 명은 한국의 주요 스타트업 및 혁신 기관에서 수년간 활동해 왔습니다.",
+        team1_role: "전자책 판매 & 운영",
+        team1_bio: "3년간 글로벌 팔로워를 대상으로 전자책을 만들고 판매했습니다 — 콘텐츠 제작부터 유통, 결제 시스템, 고객 관리, 월별 홍보 사이클까지. Outcoast 모델의 연간 $100K–$150K 수익은 벤치마크가 아닌 그의 실제 실적입니다.",
+        team2_role: "한국 시장 & 전략",
+        team2_bio: "파리 출신의 기업가로, 한국의 크리에이터·문화 경제에 깊이 뿌리를 두고 있습니다. 한국 콘텐츠·문화 산업의 정부 기관인 KOCCA로부터 인정받았으며, TBS에 한국 생태계 내 외국인 목소리로 출연했습니다. 한국 콘텐츠·크리에이터 생태계 내 그의 네트워크는 한국 팔로워가 실제로 무엇을 구매하는지 파악하는 기반입니다.",
+        faq_label: "자주 묻는 질문",
+        faq_h2: '꼭 확인하셔야 할 <span class="accent">질문들입니다.</span>',
+        faq1_q: "팔로워에게 제가 직접 쓰지 않았다고 알려야 하나요?",
+        faq1_a: "전자책은 크리에이터님의 목소리로 만들어집니다 — 브리핑을 제공하고, 모든 내용을 승인하고, 이름을 올린 것이 크리에이터님입니다. 작가가 편집자나 대필 작가와 일하는 방식과 같습니다. 크리에이터 디렉터는 크리에이터님입니다. 지식, 스타일, 문화적 관점은 모두 크리에이터님의 것입니다. 저희는 제작을 담당합니다.",
+        faq2_q: "초안이 제 스타일이 아니면 어떻게 되나요?",
+        faq2_a: "다시 씁니다. 추가 비용 없음, 이견 없음. 30분 브리핑 통화는 크리에이터님의 실제 표현, 설명 방식, 콘텐츠의 느낌을 파악하기 위해 특별히 설계되어 있습니다. 첫 초안이 맞지 않으면 맞을 때까지 수정합니다.",
+        faq3_q: "수익은 언제, 어떻게 받나요?",
+        faq3_a: "매월 직접 계좌로 지급됩니다. 모든 결제 처리와 환율 변환은 저희가 담당합니다. 총 판매량, 구매자 내역, 정확한 수익 분배를 담은 월간 수익 리포트를 받으실 수 있습니다 — 모호함 없이, 수동 계산 없이.",
+        faq4_q: "전자책이 팔리지 않으면 어떻게 되나요?",
+        faq4_a: "크리에이터님은 30분을 쓰셨습니다. 저희는 3~5일을 썼습니다 — 그래서 저희가 누구보다 팔리길 원합니다. 그것이 저희가 월별 홍보 캡션을 작성하고 4~6주마다 재홍보를 지원하는 이유입니다. 팔로워 10만 명에게 스토리 1개를 올리면 보통 20~40건의 판매가 발생합니다. 모델은 전자책이 팔로워에게 닿을 때 작동합니다.",
+        faq5_q: "파트너십 계약은 어떤 형태인가요?",
+        faq5_a: "콘텐츠는 크리에이터님의 소유입니다 — 이름, 목소리, 창작물 모두. Outcoast는 독점 유통권을 보유하고 판매 페이지, 결제, 월별 홍보를 관리합니다. 저희는 크리에이터님이 수익을 낼 때만 수익을 얻으므로 이해관계가 영구적으로 일치합니다. 파트너십은 30일 사전 통보로 종료할 수 있으며, 이 경우 콘텐츠에 대한 전체 권리는 크리에이터님에게 귀속됩니다.",
+        faq6_q: "전자책은 어디서 판매되고 판매 페이지는 누가 관리하나요?",
+        faq6_a: "판매 페이지 전체 — 디자인, 카피, 결제, 전달 — 를 저희가 구축하고 관리합니다. 크리에이터님은 팔로워에게 공유할 깔끔한 링크만 받으면 됩니다. 플랫폼 계정 설정도, 대시보드 관리도 필요 없습니다. 판매부터 다운로드까지 저희가 모두 처리합니다.",
+        apply_scarcity: "한국 크리에이터 5팀 모집 — 선착순",
+        apply_h2: '글로벌 팔로워를<br><em>한국 문화 수익</em>으로 전환하세요.',
+        apply_sub: "30분 통화 한 번. 3~5일 내 크리에이터님의 이름으로 판매 가능한 한국어 전자책. 나머지는 저희가 영구적으로 운영합니다.",
+        apply_ph_ig: "인스타그램 @핸들", apply_ph_email: "이메일 주소",
+        apply_btn: "신청하기 — 5팀",
+        apply_note: "신청 무료. 전자책을 승인하기 전까지 어떠한 의무도 없습니다.",
+        footer_copy: '&copy; 2026 · 서울에서 만들었습니다 · <a href="mailto:sofian@outcoast.kr">sofian@outcoast.kr</a>'
+      }
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+      localStorage.setItem('outcoast_lang', lang);
+      document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      var t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-ph');
+        if (t[key] !== undefined) el.placeholder = t[key];
+      });
+    }
+
+    // Init — default Korean
+    (function() {
+      var saved = localStorage.getItem('outcoast_lang') || 'ko';
+      setLang(saved);
+    })();
   </script>
 
 </body>
